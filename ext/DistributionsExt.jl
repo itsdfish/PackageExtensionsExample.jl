@@ -6,7 +6,7 @@ module DistributionsExt
     import Distributions: logpdf
 
     function logpdf(d::MyType)
-        println("calling logpdf(d::MyType))
+        println("calling logpdf(d::MyType)")
     end
 
 end
