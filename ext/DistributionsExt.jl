@@ -1,7 +1,11 @@
-isdefined(Base, :get_extension) ? (using Distributions) : (using ..Distributions)
+module DistributionsExt
 
-using PackageExtensionsExample
+    isdefined(Base, :get_extension) ? (using Distributions) : (using ..Distributions)
 
-function cool_function()
-    # a function that depends on Distributions
+    using PackageExtensionsExample
+
+    function cool_function()
+        # a function that depends on Distributions
+    end
+
 end
