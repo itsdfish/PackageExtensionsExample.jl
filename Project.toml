@@ -1,7 +1,15 @@
 name = "PackageExtensionsExample"
 uuid = "1150551f-27a8-42dc-b999-d7a8701b0574"
-authors = ["itsdfish <itsdfish@gmail.com> and contributors"]
+authors = ["itsdfish"]
 version = "1.0.0-DEV"
+
+[deps]
+
+[weakdeps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+
+[extensions]
+DistributionsExt = "Distributions"
 
 [compat]
 julia = "1"
