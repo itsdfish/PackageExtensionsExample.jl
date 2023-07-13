@@ -1,5 +1,7 @@
 module PackageExtensionsExample
 
-# Write your package code here.
+    export MyType 
+    
+    struct MyType end
 
 end

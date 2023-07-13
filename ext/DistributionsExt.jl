@@ -3,9 +3,10 @@ module DistributionsExt
     isdefined(Base, :get_extension) ? (using Distributions) : (using ..Distributions)
 
     using PackageExtensionsExample
+    import Distributions: logpdf
 
-    function cool_function()
-        # a function that depends on Distributions
+    function logpdf(d::MyType)
+        println("calling logpdf(d::MyType))
     end
 
 end
