@@ -1,5 +1,5 @@
 module PackageExtensionsExample
-    using StatsBase
+    #using StatsBase
 
     export MyType 
     export cool_function
