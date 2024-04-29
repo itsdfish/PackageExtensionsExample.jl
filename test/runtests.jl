@@ -1,6 +1,12 @@
 using PackageExtensionsExample
 using Test
 
-@testset "PackageExtensionsExample.jl" begin
-    # Write your tests here.
+
+@testset "zero methods" begin
+    @test length(methods(cool_function)) == 0
+end
+
+@testset "one method" begin
+    using Distributions
+    @test length(methods(cool_function)) == 1
 end

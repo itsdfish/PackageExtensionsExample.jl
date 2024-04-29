@@ -1,0 +1,6 @@
+[deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+PackageExtensionsExample = "1150551f-27a8-42dc-b999-d7a8701b0574"
+
+[compat]
+Distributions = "0.25.0"
