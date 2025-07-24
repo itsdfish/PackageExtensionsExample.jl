@@ -2,7 +2,7 @@ module DistributionsExt
 
     using PackageExtensionsExample
     using StatsBase
-    import PackageExtensionsExample: cool_function
+    import PackageExtensionsExample: cool_function, @cool_macro
     import Distributions: logpdf
 
 
@@ -13,6 +13,10 @@ module DistributionsExt
 
     function cool_function()
         println("calling cool_function()")
+    end
+
+    macro cool_macro()
+        :(println("calling cool_macro()"))
     end
 
 end
