@@ -4,6 +4,11 @@ module DistributionsExt
     using StatsBase
     import PackageExtensionsExample: cool_function, @cool_macro
     import Distributions: logpdf
+    export MyExtType
+    
+    @kwdef struct MyExtType 
+        msg = "hello from DistributionsExt"
+    end
 
 
     function logpdf(d::MyType)
@@ -19,4 +24,13 @@ module DistributionsExt
         :(println("calling cool_macro()"))
     end
 
+    # this installs exported symbols such as MyExtType to the parent module
+    function __init__()
+        Core.eval(PackageExtensionsExample, 
+        quote
+            @info("Exporting symbols from DistributionsExt to PackageExtensionsExample")
+            ext = Base.get_extension(PackageExtensionsExample, :DistributionsExt)
+            using .ext
+        end)
+    end
 end
