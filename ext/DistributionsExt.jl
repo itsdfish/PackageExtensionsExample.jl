@@ -24,13 +24,16 @@ module DistributionsExt
         :(println("calling cool_macro()"))
     end
 
-    # this installs exported symbols such as MyExtType to the parent module
+    # this installs exported symbols such as MyExtType to the parent module. Using println instead of @info can save 300ms on compilation.
     function __init__()
-        Core.eval(PackageExtensionsExample, 
-        quote
-            @info("Exporting symbols from DistributionsExt to PackageExtensionsExample")
-            ext = Base.get_extension(PackageExtensionsExample, :DistributionsExt)
-            using .ext
-        end)
+        Threads.@spawn begin
+            sleep(0.001)
+            Core.eval(PackageExtensionsExample, 
+            quote
+                println("Exporting symbols from DistributionsExt to PackageExtensionsExample")
+                ext = Base.get_extension(PackageExtensionsExample, :DistributionsExt)
+                using .ext
+            end)
+        end
     end
 end
