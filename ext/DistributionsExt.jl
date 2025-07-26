@@ -26,6 +26,7 @@ module DistributionsExt
 
     # this installs exported symbols such as MyExtType to the parent module. Using println instead of @info can save 300ms on compilation.
     function __init__()
+        # The @spawn is a hack to work around the new mechanisms in Julia 1.11 (in 1.10 you don't need it). This is probably not 100% safe, not knowing if the module loading code being touched is thread safe. It shows what's happening until a better solution is found.
         Threads.@spawn begin
             sleep(0.001)
             Core.eval(PackageExtensionsExample, 
